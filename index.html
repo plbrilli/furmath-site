@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Furmath — a daily number puzzle</title>
+<meta name="description" content="One row of digits, fixed order. Add operators and one equals sign so both sides match. Each row hides more than one answer.">
+<meta name="theme-color" content="#101D33">
+<meta property="og:title" content="Furmath — Math is creative">
+<meta property="og:description" content="A daily number puzzle. One row of digits, fixed order. Each row hides more than one answer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://furmath.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101D33'/%3E%3Cpath d='M12 6h8l1.5 4h-11z' fill='%23F0A0BE'/%3E%3Cpath d='M14 11h4l2.5 9-4.5 5-4.5-5z' fill='%23F0A0BE'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1 class="mark">Furmath</h1>
+    <p class="theorem">Furmath&rsquo;s Theorem: math is creative.</p>
+    <p class="desc">A daily number puzzle. One row of digits, in a fixed order —
+       your job is to make both sides of an equals sign come out the same.</p>
+  </header>
+
+  <!-- The board, playing itself. Real digits, real solutions. -->
+  <div class="board">
+    <div class="row" id="row" aria-live="polite"></div>
+    <div class="boardfoot">
+      <span class="count" id="count">Today&rsquo;s row, unsolved. Where would you put the equals sign?</span>
+      <button class="step" id="step">Show me one</button>
+    </div>
+  </div>
+
+  <section>
+    <h2>How it plays</h2>
+    <div class="beats">
+      <div class="beat">
+        <h3>The digits don&rsquo;t move</h3>
+        <p>You get them in that order and you use every one. All you choose is what
+           goes between them.</p>
+      </div>
+      <div class="beat">
+        <h3>One equals sign</h3>
+        <p>Put it anywhere. Both sides have to land on the same number — exactly,
+           no rounding.</p>
+      </div>
+      <div class="beat">
+        <h3>More than one answer</h3>
+        <p>Every row hides several. Finding one is the start of the puzzle, not the
+           end of it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>You set the board</h2>
+    <div class="split">
+      <div class="text">
+        <p>Play <strong>four, five or six digits</strong>, and decide whether the
+           harder operators are in play. Nothing grades you for choosing — the board
+           you pick is the board you finish.</p>
+        <p>Two digits side by side can also be pushed together into one bigger number.
+           Once they are, a root or a factorial covers all of it.</p>
+        <div class="dial">
+          <span class="key">4</span><span class="key on">5</span><span class="key">6</span>
+          <span class="lbl">digits</span>
+          <span class="key ops on">√ ! x&#8319;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The pink tie</h2>
+    <div class="split">
+      <div class="pair" aria-hidden="true">
+        <svg class="furmath" viewBox="0 0 26 32" shape-rendering="crispEdges" role="img">
+          <g fill="#D4785F">
+            <rect x="5" y="2" width="3" height="3"/><rect x="18" y="2" width="3" height="3"/>
+            <rect x="5" y="4" width="16" height="11"/>
+            <rect x="7" y="15" width="12" height="12"/>
+            <rect x="3" y="17" width="4" height="3"/><rect x="19" y="17" width="4" height="3"/>
+          </g>
+          <g fill="#E8A78F">
+            <rect x="6" y="3" width="1" height="1"/><rect x="19" y="3" width="1" height="1"/>
+            <rect x="10" y="10" width="6" height="4"/>
+            <rect x="10" y="17" width="6" height="9"/>
+          </g>
+          <g fill="#101D33">
+            <rect x="7" y="7" width="5" height="4"/><rect x="14" y="7" width="5" height="4"/>
+            <rect x="12" y="8" width="2" height="1"/>
+            <rect x="12" y="11" width="2" height="2"/>
+            <rect x="8" y="27" width="3" height="3"/><rect x="15" y="27" width="3" height="3"/>
+          </g>
+          <g fill="#B8D4F5">
+            <rect x="8" y="8" width="3" height="2"/><rect x="15" y="8" width="3" height="2"/>
+          </g>
+          <g fill="#F0A0BE">
+            <rect x="11" y="15" width="4" height="2"/>
+            <rect x="12" y="17" width="2" height="3"/>
+            <rect x="11" y="20" width="4" height="4"/>
+            <rect x="12" y="24" width="2" height="1"/>
+          </g>
+        </svg>
+        <svg class="furmath" viewBox="0 0 26 32" shape-rendering="crispEdges" role="img">
+          <g fill="#E8A78F">
+            <rect x="5" y="2" width="3" height="3"/><rect x="18" y="2" width="3" height="3"/>
+            <rect x="5" y="4" width="16" height="11"/>
+            <rect x="7" y="15" width="12" height="12"/>
+            <rect x="3" y="17" width="4" height="3"/><rect x="19" y="17" width="4" height="3"/>
+          </g>
+          <g fill="#F2CBB8">
+            <rect x="10" y="10" width="6" height="4"/>
+            <rect x="10" y="17" width="6" height="9"/>
+          </g>
+          <g fill="#101D33">
+            <rect x="7" y="7" width="5" height="4"/><rect x="14" y="7" width="5" height="4"/>
+            <rect x="12" y="8" width="2" height="1"/>
+            <rect x="12" y="11" width="2" height="2"/>
+            <rect x="8" y="27" width="3" height="3"/><rect x="15" y="27" width="3" height="3"/>
+          </g>
+          <g fill="#B8D4F5">
+            <rect x="8" y="8" width="3" height="2"/><rect x="15" y="8" width="3" height="2"/>
+          </g>
+          <g fill="#F0A0BE">
+            <rect x="11" y="15" width="4" height="2"/>
+            <rect x="12" y="17" width="2" height="3"/>
+            <rect x="11" y="20" width="4" height="4"/>
+            <rect x="12" y="24" width="2" height="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="text">
+        <p>You don&rsquo;t have to find them all. Find enough of them and you earn the
+           day&rsquo;s <strong>pink tie</strong> — after the one the maths faculty at
+           Waterloo has worn since 1957.</p>
+        <p>Two furmaths keep you company while you hunt. They dance when you find
+           something, and they wear the tie once you&rsquo;ve earned it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Get it</h2>
+    <p style="color:var(--dim);margin:0 0 22px">
+      Furmath is in testing on iPhone. Ask for an invite and you&rsquo;ll get a
+      TestFlight link.</p>
+    <a class="cta" href="mailto:hello@furmath.com?subject=Furmath%20invite">
+      Ask for an invite</a>
+    <p class="quiet">Free. No ads, no account, no tracking — the app makes no
+       network requests at all.</p>
+  </section>
+
+  <footer>
+    <a href="/privacy">Privacy</a><a href="/terms">Terms</a>
+    <a href="mailto:hello@furmath.com">hello@furmath.com</a>
+    <p style="margin:16px 0 0">Named for Fermat, who wrote that his proof wouldn&rsquo;t
+       fit in the margin. This one has to fit in a single row.</p>
+  </footer>
+
+</div>
+
+<script>
+// The row is a real board — 3 8 1 5 7 2 — and these are four of its real
+// solutions, checked against the app's own solver.
+const DIGITS = [3, 8, 1, 5, 7, 2];
+const SOLUTIONS = [
+  { note: "Arithmetic, nothing fancy.",
+    t: ["3","=","8","−","1","+","5","−","7","−","2"] },
+  { note: "1 and 5 pushed together into 15.",
+    t: ["3","×","8","=","15*","+","7","+","2"] },
+  { note: "3 and 8 pushed together into 38.",
+    t: ["38*","=","1","+","5","×","7","+","2"] },
+  { note: "With the harder operators in play.",
+    t: ["3!","×","√81*","=","5","+","7^2"] },
+];
+
+const row = document.getElementById("row");
+const count = document.getElementById("count");
+const step = document.getElementById("step");
+let shown = -1;
+
+function cell(tok) {
+  if (["+","−","×","÷","="].includes(tok)) {
+    const s = document.createElement("span");
+    s.className = "op" + (tok === "=" ? " eq" : "");
+    s.textContent = tok;
+    return s;
+  }
+  const d = document.createElement("span");
+  const joined = tok.endsWith("*");
+  let text = joined ? tok.slice(0, -1) : tok;
+  d.className = "tile" + (joined ? " join" : "");
+  if (text.startsWith("√")) { d.classList.add("radical"); text = text.slice(1); }
+  const pow = text.split("^");
+  if (pow.length === 2) {
+    d.append(pow[0]);
+    const sup = document.createElement("span");
+    sup.className = "sup"; sup.textContent = pow[1];
+    d.append(sup);
+  } else {
+    d.textContent = text;
+  }
+  return d;
+}
+
+function blank() {
+  row.replaceChildren();
+  DIGITS.forEach((n, i) => {
+    row.append(cell(String(n)));
+    if (i < DIGITS.length - 1) {
+      const g = document.createElement("span");
+      g.className = "gap";
+      row.append(g);
+    }
+  });
+  count.textContent = "Today’s row, unsolved. Where would you put the equals sign?";
+  step.textContent = "Show me one";
+}
+
+function show(i) {
+  const s = SOLUTIONS[i];
+  row.replaceChildren(...s.t.map(cell));
+  count.textContent = s.note + "  (" + (i + 1) + " of " + SOLUTIONS.length + ")";
+  step.textContent = i === SOLUTIONS.length - 1 ? "Start over" : "Another one";
+}
+
+step.addEventListener("click", () => {
+  shown += 1;
+  if (shown >= SOLUTIONS.length) { shown = -1; blank(); return; }
+  show(shown);
+});
+
+blank();
+</script>
+</body>
+</html>

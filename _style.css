@@ -1,0 +1,110 @@
+/* Toulouse: woad blue ground, pink brick accents — the two colours of the city
+   Fermat lived in, and the app's palette exactly. */
+:root{
+  --bg:#101D33; --card:#1B2C4A; --tile:#24395E; --edge:#3D5C8D;
+  --ink:#ECE4DD; --dim:#8FA9CD; --faint:#4D6D9E;
+  --accent:#E8A78F; --brick:#D4785F; --good:#B8D4F5; --pink:#F0A0BE;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+a{color:var(--pink)}
+h1,h2,h3{letter-spacing:-.4px}
+
+/* hero */
+.hero{padding:76px 0 12px;text-align:center}
+.mark{font-size:60px;font-weight:800;margin:0;letter-spacing:-1.5px}
+.theorem{
+  margin:14px 0 0;font-size:21px;color:var(--pink);font-weight:600;letter-spacing:-.2px;
+}
+.desc{margin:18px auto 0;max-width:34em;color:var(--dim);font-size:18px}
+
+/* the board */
+.board{
+  margin:40px auto 0;padding:26px 18px;background:var(--card);
+  border:1px solid var(--edge);border-radius:18px;
+}
+.row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3px;min-height:64px}
+.tile{
+  background:var(--tile);border:1px solid var(--edge);border-radius:10px;
+  min-width:44px;height:56px;padding:0 9px;display:flex;align-items:center;justify-content:center;
+  font:700 25px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);
+}
+.tile.join{border-color:var(--brick)}
+.op{width:26px;text-align:center;color:var(--accent);font-size:21px;font-weight:700}
+.op.eq{color:var(--brick)}
+.gap{
+  width:14px;height:30px;border:1.5px dashed var(--faint);border-radius:5px;
+}
+.sup{font-size:15px;vertical-align:super;margin-left:1px}
+.radical{position:relative;padding-left:4px}
+.radical:before{content:"√";color:var(--brick);font-size:26px;margin-right:2px}
+.boardfoot{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-top:20px;flex-wrap:wrap
+}
+.count{color:var(--dim);font-size:15px}
+button.step{
+  appearance:none;border:1px solid var(--brick);background:transparent;color:var(--accent);
+  font:600 15px/1 inherit;padding:12px 18px;border-radius:11px;cursor:pointer;
+}
+button.step:hover{background:var(--brick);color:#1a1006;border-color:var(--brick)}
+
+/* sections */
+section{padding:56px 0}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 22px;font-weight:700}
+.beats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.beat{background:var(--card);border-radius:14px;padding:20px}
+.beat h3{margin:0 0 7px;font-size:17px}
+.beat p{margin:0;color:var(--dim);font-size:15.5px;line-height:1.55}
+.split{display:flex;gap:34px;align-items:center;flex-wrap:wrap}
+.split .text{flex:1 1 300px}
+.split p{color:var(--dim);margin:0 0 14px}
+.split p strong{color:var(--ink);font-weight:600}
+
+/* the dial, drawn as it appears in the app */
+.dial{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px}
+.key{
+  border:1px solid var(--edge);border-radius:8px;height:38px;min-width:40px;
+  display:flex;align-items:center;justify-content:center;padding:0 12px;
+  font:800 16px/1 ui-monospace,Menlo,monospace;color:var(--dim);
+}
+.key.on{background:var(--brick);border-color:var(--brick);color:#1a1006}
+.key.ops{font-family:inherit;font-size:14px}
+.dial .lbl{color:var(--faint);font-size:14px;margin-left:2px}
+
+/* furmaths */
+.pair{display:flex;gap:6px;flex:0 0 auto}
+.furmath{width:104px;height:128px;image-rendering:pixelated}
+
+/* get it */
+.cta{
+  display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:#2a0f1c;
+  text-decoration:none;font-weight:700;padding:15px 24px;border-radius:13px;font-size:17px;
+}
+.cta:hover{filter:brightness(1.07)}
+.quiet{color:var(--faint);font-size:14.5px;margin-top:16px}
+
+footer{border-top:1px solid var(--card);padding:26px 0 60px;color:var(--faint);font-size:14.5px}
+footer a{color:var(--dim);text-decoration:none;margin-right:18px}
+footer a:hover{color:var(--pink)}
+
+/* the legal pages */
+.doc h1{font-size:38px;margin:0 0 4px}
+.doc .sub{color:var(--dim);margin:0 0 36px}
+.doc h2{margin:34px 0 8px}
+.doc p{margin:0 0 15px;color:var(--ink)}
+.doc .lede{font-size:20px}
+
+@media (max-width:520px){
+  .hero{padding:52px 0 8px}
+  .mark{font-size:46px}
+  .theorem{font-size:18px}
+  .tile{min-width:36px;height:48px;font-size:21px;padding:0 7px}
+  .op{width:21px;font-size:18px}
+}
