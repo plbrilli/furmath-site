@@ -3,7 +3,7 @@
 :root{
   --bg:#101D33; --card:#1B2C4A; --tile:#24395E; --edge:#3D5C8D;
   --ink:#ECE4DD; --dim:#8FA9CD; --faint:#4D6D9E;
-  --accent:#E8A78F; --brick:#D4785F; --good:#B8D4F5; --pink:#F0A0BE;
+  --accent:#E8A78F; --brick:#D4785F; --good:#B8D4F5; --pink:#E890BE;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
